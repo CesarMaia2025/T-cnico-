@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesar Maia - Técnico de Informática e Redes em Paranaíba/MS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis CSS - Tema Escuro */
+        :root {
+            --primary-color: #3b82f6; 
+            --primary-color-dark: #2563eb; 
+            --secondary-color: #10b981; 
+            --secondary-color-dark: #059669; 
+            
+            --bg-primary: #111827; 
+            --bg-secondary: #1f2937; 
+            --bg-card: #374151; 
+            
+            --text-primary: #f3f4f6; 
+            --text-secondary: #9ca3af; 
+            --text-headings: #ffffff; 
+            
+            --border-color: #4b5563; 
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.25);
+
+            --border-radius-md: 0.375rem; /* 6px */
+            --border-radius-lg: 0.5rem;   /* 8px */
+            --font-family-sans: 'Inter', sans-serif;
+        }
+
+        /* Reset Básico & Padrões */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            color: var(--text-secondary);
+            background-color: var(--bg-primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-headings);
+            font-weight: 700;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5em; }
+        h2 { font-size: 2rem; margin-bottom: 0.75em; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.5em; }
+        h4 { font-size: 1.25rem; margin-bottom: 0.5em; }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+        }
+        a:hover {
+            color: var(--primary-color-dark);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--border-radius-md);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button, .button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-lg);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+        button:hover, .button:hover {
+             box-shadow: var(--shadow-md);
+        }
+
+
+        .button-primary {
+            background-color: var(--primary-color);
+            color: var(--text-headings);
+        }
+        .button-primary:hover {
+            background-color: var(--primary-color-dark);
+            transform: scale(1.03);
+        }
+
+        .button-secondary {
+            background-color: var(--secondary-color);
+            color: var(--text-headings);
+        }
+        .button-secondary:hover {
+            background-color: var(--secondary-color-dark);
+            transform: scale(1.03);
+        }
+        
+        .button-outline {
+            background-color: transparent;
+            color: var(--text-headings);
+            border: 2px solid var(--text-headings);
+        }
+        .button-outline:hover {
+            background-color: var(--text-headings);
+            color: var(--primary-color-dark);
+            transform: scale(1.03);
+        }
+
+
+        /* Cabeçalho */
+        .site-header {
+            background-color: var(--bg-secondary);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 80px; /* Altura fixa do cabeçalho */
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center; /* Alinha verticalmente os itens no container */
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .site-logo {
+            font-size: 1.65rem; /* Reduzido ligeiramente para evitar quebra */
+            font-weight: 800;
+            color: var(--primary-color);
+            white-space: nowrap; /* Impede a quebra de linha do logo */
+            line-height: 1; /* Ajusta a altura da linha para melhor alinhamento */
+        }
+
+        .nav-desktop {
+            display: flex; /* Adicionado para garantir que a navegação se comporte como flex item */
+            align-items: center; /* Alinha os itens da navegação verticalmente */
+        }
+
+        .nav-desktop ul {
+            display: flex;
+            align-items: center; /* Alinha os <li> verticalmente */
+            gap: 0.25rem; 
+        }
+
+        .nav-desktop a {
+            display: flex; /* Para alinhar o texto dentro do <a> se houver ícones */
+            align-items: center; /* Alinha o texto verticalmente dentro do <a> */
+            padding: 0.75rem 1rem; /* Aumentado o padding vertical para melhor alinhamento e área de clique */
+            height: 100%; /* Faz o link ocupar a altura do seu container <li> */
+            border-radius: var(--border-radius-md);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative; 
+            overflow: hidden; 
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .nav-desktop a::before { 
+            content: '';
+            position: absolute;
+            bottom: 5px; /* Ajuste na posição do sublinhado */
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        .nav-desktop a:hover::before,
+        .nav-desktop a.nav-link-active::before {
+            width: calc(100% - 2rem); /* Ajusta a largura do sublinhado para o padding */
+            left: 1rem;
+        }
+        .nav-desktop a:hover,
+        .nav-desktop a.nav-link-active {
+            color: var(--primary-color); 
+            font-weight: 600;
+            background-color: rgba(59, 130, 246, 0.1); 
+        }
+
+
+        .header-cta {
+            display: flex; /* Adicionado para garantir que o botão se comporte como flex item */
+            align-items: center; /* Alinha o botão verticalmente */
+        }
+        .header-cta .button {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+        .header-cta .button i {
+            margin-right: 0.5rem;
+        }
+
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .nav-mobile {
+            display: none;
+            background-color: var(--bg-secondary);
+            box-shadow: var(--shadow-lg);
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            padding-bottom: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .nav-mobile a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav-mobile a:hover {
+            background-color: var(--bg-primary);
+            color: var(--primary-color);
+        }
+        .nav-mobile .button-secondary {
+            margin: 1rem 1.5rem 0;
+            width: calc(100% - 3rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-mobile .button-secondary i {
+            margin-right: 0.5rem;
+        }
+
+        /* Seção Hero */
+        .hero-section {
+            background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dGVjaG5vbG9neSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-headings);
+            min-height: calc(85vh - 80px); 
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 3rem 0; 
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(17, 24, 39, 0.75);
+            z-index: 1;
+        }
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-section .subtitle-job {
+            font-size: 2.2rem; 
+            font-weight: 700; 
+            margin-bottom: 2rem; 
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+
+        .hero-actions .button {
+            margin: 0.5rem;
+            font-size: 1rem;
+            padding: 0.9rem 1.8rem; 
+        }
+        .hero-actions .button i {
+            margin-left: 0.5rem;
+        }
+
+        /* Estilização Geral das Seções */
+        .section {
+            padding: 3rem 0;
+        }
+        .section-dark { background-color: var(--bg-primary); }
+        .section-darker { background-color: var(--bg-secondary); }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-headings);
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Seção Sobre Mim */
+        .about-grid {
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+        }
+        .about-image img {
+            border: 3px solid var(--border-color);
+            box-shadow: var(--shadow-xl);
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+        .about-content h3 {
+            font-size: 1.5rem;
+            color: var(--text-headings);
+            margin-bottom: 1rem;
+        }
+        .about-content ul {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0;
+        }
+        .about-content ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .about-content ul i {
+            color: var(--secondary-color);
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        /* Seções de Serviços & Diferenciais */
+        .cards-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        .card:hover {
+            transform: translateY(-5px) scale(1.02); 
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+        .card-icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+        .card-icon-wrapper i {
+            font-size: 2rem;
+        }
+        .icon-blue { background-color: rgba(59, 130, 246, 0.15); color: var(--primary-color); }
+        .icon-green { background-color: rgba(16, 185, 129, 0.15); color: var(--secondary-color); }
+        .icon-red { background-color: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .icon-yellow { background-color: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+        .icon-purple { background-color: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+        .icon-indigo { background-color: rgba(99, 102, 241, 0.15); color: #6366f1; }
+        .icon-teal { background-color: rgba(20, 184, 166, 0.15); color: #14b8a6; }
+
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: var(--text-headings);
+            margin-bottom: 0.75rem;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Seção de Depoimentos */
+        .testimonial-card {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .testimonial-author img {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+        .testimonial-author h4 {
+            font-size: 1.1rem;
+            color: var(--text-headings);
+            margin-bottom: 0.25rem;
+        }
+        .testimonial-author p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+        .testimonial-card .quote {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        /* Seção de Contato */
+        .contact-wrapper {
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-headings);
+        }
+        .contact-info .button-secondary {
+            font-size: 1.1rem;
+            padding: 0.8rem 2rem;
+        }
+        .contact-info .button-secondary i {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+        .contact-info p {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .contact-info p i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        .contact-divider {
+            margin: 2.5rem 0;
+            border-color: var(--border-color);
+        }
+        .contact-form h3 {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-headings);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            font-size: 1rem;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-secondary);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            background-color: var(--bg-secondary);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-submit-button {
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #form-feedback p {
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+        .form-feedback-success { color: var(--secondary-color); }
+        .form-feedback-error { color: #f87171; }
+
+
+        /* Rodapé */
+        .site-footer {
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .footer-column h4 {
+            font-size: 1.2rem;
+            color: var(--text-headings);
+            margin-bottom: 1rem;
+        }
+        .footer-column p,
+        .footer-column ul li,
+        .footer-column ul li a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+        }
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-column ul li i {
+            margin-right: 0.5rem;
+            width: 20px;
+        }
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+        .footer-bottom p {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Animações */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-down { transform: translateY(-20px); }
+        .fade-in-up { transform: translateY(20px); }
+        
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Media Queries para Responsividade */
+        @media (min-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 1.75rem; }
+
+            .nav-desktop { display: flex; }
+            .mobile-menu-button { display: none; }
+            .header-cta { display: flex; } /* Alterado para flex para alinhar o botão */
+
+            .hero-section .subtitle-job { font-size: 2.5rem; } 
+            .hero-actions .button { font-size: 1.1rem; padding: 0.9rem 2rem; }
+
+            .section { padding: 4rem 0; }
+            .section-title { font-size: 2.25rem; margin-bottom: 1.5rem; }
+            .section-subtitle { margin-bottom: 3.5rem; }
+
+            .about-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+            .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            
+            .contact-wrapper { padding: 3rem; }
+            .contact-info p { font-size: 1.1rem; }
+
+            .footer-grid { grid-template-columns: repeat(3, 1fr); text-align: left; }
+            .footer-column ul li { justify-content: flex-start; }
+        }
+
+        @media (min-width: 1024px) {
+            .nav-desktop ul { gap: 0.5rem; } 
+            .nav-desktop a { font-size: 1rem; padding: 0.75rem 1.2rem; } /* Aumentado padding vertical para melhor alinhamento */
+
+
+            .hero-section .subtitle-job { font-size: 3rem; } 
+
+            .cards-grid { grid-template-columns: repeat(3, 1fr); }
+            .testimonial-card { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="site-logo">Cesar Maia</a> <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#hero" class="nav-link nav-link-active">Início</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre Mim</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-cta">
+                <a href="https://wa.me/5567981716759?text=Ol%C3%A1%2C+Cesar!+Preciso+de+suporte+t%C3%A9cnico." target="_blank" rel="noopener noreferrer" class="button button-secondary">
+                    <i class="fab fa-whatsapp"></i> Fale Comigo
+                </a>
+            </div>
+
+            <button id="mobile-menu-button" class="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <nav id="mobile-menu" class="nav-mobile">
+            <a href="#hero" class="nav-link-mobile">Início</a>
+            <a href="#sobre" class="nav-link-mobile">Sobre Mim</a>
+            <a href="#servicos" class="nav-link-mobile">Serviços</a>
+            <a href="#diferenciais" class="nav-link-mobile">Diferenciais</a>
+            <a href="#depoimentos" class="nav-link-mobile">Depoimentos</a>
+            <a href="#contato" class="nav-link-mobile">Contato</a>
+            <a href="https://wa.me/5567981716759?text=Ol%C3%A1%2C+Cesar!+Preciso+de+suporte+t%C3%A9cnico." target="_blank" rel="noopener noreferrer" class="button button-secondary">
+                <i class="fab fa-whatsapp"></i> Fale Comigo
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <p class="subtitle-job animate-on-scroll fade-in-down" style="transition-delay: 0.2s;">Técnico de Informática e Redes</p>
+                <div class="hero-actions animate-on-scroll fade-in-up" style="transition-delay: 0.4s;">
+                    <a href="#servicos" class="button button-primary">Meus Serviços</a>
+                    <a href="https://wa.me/5567981716759?text=Ol%C3%A1%2C+Cesar!+Gostaria+de+um+or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="button button-outline">
+                        Orçamento Rápido <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="sobre" class="section section-darker">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll fade-in-down">Sobre Mim</h2>
+                <p class="section-subtitle animate-on-scroll fade-in-down" style="transition-delay: 0.1s;">
+                    Apaixonado por tecnologia e dedicado a oferecer o melhor suporte técnico em Paranaíba e região.
+                </p>
+                <div class="about-grid">
+                    <div class="about-image animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                        <img src="https://images.unsplash.com/photo-1550751827-41378cb4f4dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHRlY2huaWNpYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60" alt="[Imagem de Cesar Maia, técnico de informática trabalhando em um computador]">
+                    </div>
+                    <div class="about-content animate-on-scroll fade-in-up" style="transition-delay: 0.3s;">
+                        <h3>Olá, sou Cesar Maia!</h3>
+                        <p>Com anos de experiência no mercado de TI, meu principal objetivo é resolver seus problemas tecnológicos de forma rápida, eficiente e com um atendimento personalizado. Atendo desde usuários domésticos a pequenas empresas em Paranaíba, Mato Grosso do Sul.</p>
+                        <p>Acredito que a tecnologia deve facilitar a vida das pessoas, e não complicar. Por isso, busco sempre as soluções mais adequadas para cada cliente, explicando os procedimentos de forma clara e oferecendo um serviço transparente e confiável.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Atendimento rápido e personalizado.</li>
+                            <li><i class="fas fa-check-circle"></i> Diagnóstico preciso e soluções eficazes.</li>
+                            <li><i class="fas fa-check-circle"></i> Compromisso com a satisfação do cliente.</li>
+                        </ul>
+                         <a href="#contato" class="button button-primary" style="margin-top:1rem;">Entre em Contato</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="servicos" class="section section-dark">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll fade-in-down">Meus Serviços</h2>
+                <p class="section-subtitle animate-on-scroll fade-in-down" style="transition-delay: 0.1s;">
+                    Soluções completas para seus equipamentos e redes. Confira o que posso fazer por você:
+                </p>
+                <div class="cards-grid">
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="card-icon-wrapper icon-blue"><i class="fas fa-desktop"></i></div>
+                        <h3>Manutenção de Computadores</h3>
+                        <p>Reparos, upgrades e otimização de desktops e notebooks de todas as marcas e modelos.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="card-icon-wrapper icon-green"><i class="fas fa-cogs"></i></div>
+                        <h3>Formatação e Instalação</h3>
+                        <p>Instalação e configuração de Windows, Linux, drivers, softwares e backup de dados.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.4s;">
+                        <div class="card-icon-wrapper icon-red"><i class="fas fa-shield-virus"></i></div>
+                        <h3>Remoção de Vírus</h3>
+                        <p>Limpeza completa de malwares, spywares e otimização para um sistema mais rápido e seguro.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.5s;">
+                        <div class="card-icon-wrapper icon-yellow"><i class="fas fa-network-wired"></i></div>
+                        <h3>Configuração de Redes</h3>
+                        <p>Instalação e configuração de redes Wi-Fi e cabeadas para residências e pequenos escritórios.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.6s;">
+                        <div class="card-icon-wrapper icon-purple"><i class="fas fa-headset"></i></div>
+                        <h3>Suporte Técnico</h3>
+                        <p>Atendimento remoto ou presencial para solucionar problemas e tirar dúvidas.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.7s;">
+                        <div class="card-icon-wrapper icon-indigo"><i class="fas fa-tools"></i></div>
+                        <h3>Consultoria em TI</h3>
+                        <p>Orientação para aquisição de equipamentos, softwares e melhorias na sua infraestrutura de TI.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="diferenciais" class="section section-darker">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll fade-in-down">Meus Diferenciais</h2>
+                <p class="section-subtitle animate-on-scroll fade-in-down" style="transition-delay: 0.1s;">
+                    Por que escolher meus serviços de suporte técnico?
+                </p>
+                <div class="cards-grid">
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="card-icon-wrapper icon-blue"><i class="fas fa-user-shield"></i></div>
+                        <h3>Confiança e Transparência</h3>
+                        <p>Serviço honesto, com explicações claras sobre os problemas e soluções aplicadas.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="card-icon-wrapper icon-green"><i class="fas fa-shipping-fast"></i></div>
+                        <h3>Agilidade no Atendimento</h3>
+                        <p>Busco resolver seu problema o mais rápido possível, minimizando seu tempo parado.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.4s;">
+                        <div class="card-icon-wrapper icon-red"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Atendimento Local</h3>
+                        <p>Suporte técnico especializado aqui mesmo em Paranaíba/MS, com opção de visita.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.5s;">
+                        <div class="card-icon-wrapper icon-yellow"><i class="fas fa-thumbs-up"></i></div>
+                        <h3>Qualidade Garantida</h3>
+                        <p>Utilizo peças e softwares de qualidade, visando a durabilidade e o bom funcionamento.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.6s;">
+                        <div class="card-icon-wrapper icon-purple"><i class="fas fa-comments"></i></div>
+                        <h3>Suporte Pós-Serviço</h3>
+                        <p>Disponível para tirar dúvidas e auxiliar mesmo após a conclusão do serviço.</p>
+                    </div>
+                    <div class="card animate-on-scroll fade-in-up" style="transition-delay: 0.7s;">
+                        <div class="card-icon-wrapper icon-teal"><i class="fas fa-hand-holding-usd"></i></div>
+                        <h3>Preço Justo</h3>
+                        <p>Orçamentos competitivos e justos, adequados à complexidade do serviço.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="depoimentos" class="section section-dark">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll fade-in-down">O Que Meus Clientes Dizem</h2>
+                <p class="section-subtitle animate-on-scroll fade-in-down" style="transition-delay: 0.1s;">
+                    A satisfação de quem confia no meu trabalho é minha maior prioridade.
+                </p>
+                <div class="cards-grid">
+                    <div class="testimonial-card animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=80&q=60" alt="[Avatar do Cliente João S.]">
+                            <div>
+                                <h4>João S.</h4>
+                                <p>Cliente Residencial</p>
+                            </div>
+                        </div>
+                        <p class="quote">"O Cesar resolveu o problema do meu computador rapidinho! Muito atencioso e profissional. Recomendo demais aqui em Paranaíba."</p>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=80&q=60" alt="[Avatar da Cliente Maria A.]">
+                            <div>
+                                <h4>Maria A.</h4>
+                                <p>Pequena Empresa</p>
+                            </div>
+                        </div>
+                        <p class="quote">"Precisávamos configurar nossa rede no escritório e o Cesar foi excelente. Serviço rápido, eficiente e com ótimo custo-benefício."</p>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll fade-in-up" style="transition-delay: 0.4s;">
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=80&q=60" alt="[Avatar do Cliente Lucas P.]">
+                            <div>
+                                <h4>Lucas P.</h4>
+                                <p>Estudante</p>
+                            </div>
+                        </div>
+                        <p class="quote">"Meu notebook estava muito lento, quase não dava pra usar. O Cesar fez uma otimização e agora está parecendo novo! Valeu!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contato" class="section section-darker">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll fade-in-down">Entre em Contato</h2>
+                <p class="section-subtitle animate-on-scroll fade-in-down" style="transition-delay: 0.1s;">
+                    Precisa de ajuda com seu computador ou rede? Fale comigo! Será um prazer atendê-lo.
+                </p>
+                <div class="contact-wrapper animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="contact-info">
+                        <h3>Atendimento Rápido via WhatsApp!</h3>
+                        <a href="https://wa.me/5567981716759?text=Ol%C3%A1%2C+Cesar!+Preciso+de+suporte+t%C3%A9cnico+em+Parana%C3%ADba." target="_blank" rel="noopener noreferrer" class="button button-secondary">
+                            <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                        </a>
+                        <p><i class="fas fa-phone-alt"></i> (67) 98171-6759</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:cesarmaia_@hotmail.com.br">cesarmaia_@hotmail.com.br</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Atendimento em Paranaíba/MS e região.</p>
+                    </div>
+
+                    <hr class="contact-divider">
+
+                    <form id="contactForm" class="contact-form" action="#" method="POST">
+                        <h3>Ou envie uma mensagem pelo formulário:</h3>
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" name="nome" id="nome" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail (opcional)</label>
+                            <input type="email" name="email" id="email" placeholder="seu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone/WhatsApp (para retorno)</label>
+                            <input type="tel" name="telefone" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Descreva seu problema ou necessidade</label>
+                            <textarea name="mensagem" id="mensagem" rows="5" placeholder="Ex: Meu computador não liga, preciso configurar minha impressora, etc." required></textarea>
+                        </div>
+                        <button type="submit" class="button button-primary form-submit-button">Enviar Mensagem</button>
+                        <div id="form-feedback" style="text-align: center;"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Cesar Maia</h4>
+                    <p>Seu técnico de informática de confiança em Paranaíba/MS. Soluções eficientes para seus problemas de TI.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre Mim</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#diferenciais">Diferenciais</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Fale Comigo</h4>
+                    <ul>
+                        <li><i class="fab fa-whatsapp" style="color: var(--secondary-color);"></i><a href="https://wa.me/5567981716759?text=Ol%C3%A1%2C+Cesar!" target="_blank" rel="noopener noreferrer">(67) 98171-6759</a></li>
+                        <li><i class="fas fa-envelope" style="color: var(--primary-color);"></i><a href="mailto:cesarmaia_@hotmail.com.br">cesarmaia_@hotmail.com.br</a></li>
+                        <li><i class="fas fa-map-marker-alt" style="color: #ef4444;"></i>Paranaíba, Mato Grosso do Sul</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Cesar Maia. Todos os direitos reservados.</p>
+                <p>Técnico de Informática e Redes</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Menu Mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuIcon = mobileMenuButton.querySelector('i');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                const isHidden = mobileMenu.style.display === 'none' || mobileMenu.style.display === '';
+                mobileMenu.style.display = isHidden ? 'block' : 'none';
+                mobileMenuIcon.className = isHidden ? 'fas fa-times' : 'fas fa-bars';
+            });
+
+            const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.style.display = 'none';
+                    mobileMenuIcon.className = 'fas fa-bars';
+                });
+            });
+        }
+
+        // Ano Atual no Rodapé
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Rolagem Suave e Menu Ativo (Desktop)
+        const navLinks = document.querySelectorAll('.nav-desktop .nav-link');
+        const sections = document.querySelectorAll('main section[id]');
+        const headerHeight = document.querySelector('.site-header').offsetHeight || 80;
+
+        function updateActiveNavLink() {
+            let currentSectionId = '';
+            let heroSectionVisible = false;
+
+            const heroSection = document.getElementById('hero');
+            if (heroSection) {
+                const heroRect = heroSection.getBoundingClientRect();
+                if (heroRect.top <= headerHeight && heroRect.bottom >= headerHeight) {
+                     heroSectionVisible = true;
+                }
+            }
+            
+            if (heroSectionVisible) {
+                 currentSectionId = 'hero';
+            } else {
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= (sectionTop - headerHeight - (section.clientHeight / 2) )) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+            }
+            if (pageYOffset < (sections[0].offsetTop - headerHeight) && sections[0].id === 'hero') {
+                currentSectionId = 'hero';
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('nav-link-active');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('nav-link-active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNavLink);
+        window.addEventListener('load', updateActiveNavLink);
+
+        // Simulação de envio de formulário
+        const contactForm = document.getElementById('contactForm');
+        const formFeedback = document.getElementById('form-feedback');
+
+        if (contactForm && formFeedback) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const nome = document.getElementById('nome').value;
+                const telefone = document.getElementById('telefone').value;
+                const mensagem = document.getElementById('mensagem').value;
+
+                if (nome.trim() === '' || telefone.trim() === '' || mensagem.trim() === '') {
+                    formFeedback.innerHTML = '<p class="form-feedback-error">Por favor, preencha todos os campos obrigatórios.</p>';
+                    return;
+                }
+
+                formFeedback.innerHTML = '<p class="form-feedback-success">Mensagem enviada com sucesso! Entrarei em contato em breve.</p>';
+                contactForm.reset();
+                setTimeout(() => { formFeedback.innerHTML = ''; }, 5000);
+            });
+        }
+
+        // Animações de entrada com Intersection Observer
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    if (entry.target.style.transitionDelay) {
+                        // A transição já respeitará o delay definido no CSS inline
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
+    </script>
+</body>
+</html>
+

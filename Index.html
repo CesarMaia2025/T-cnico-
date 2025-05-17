@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesar Maia - Técnico de Informática e Redes em Paranaíba/MS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .nav-link-active {
+            color: #2563eb; /* Azul mais escuro do Tailwind para link ativo */
+            font-weight: 700;
+        }
+        .hero-bg {
+            /* Imagem de placeholder para TI. Substitua por uma imagem sua ou mais específica */
+            background-image: url('https://placehold.co/1920x1080/374151/e5e7eb?text=Solu%C3%A7%C3%B5es+em+TI');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            @apply text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800;
+        }
+        .section-subtitle {
+            @apply text-center text-gray-600 mb-12 max-w-2xl mx-auto;
+        }
+        .card-hover-effect {
+            @apply transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl;
+        }
+        /* Animações de entrada (requerem configuração no tailwind.config.js para build local, ou usar JS) */
+        .animate-fade-in-down {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .animation-delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .animation-delay-500 { animation-delay: 0.5s; opacity: 0; }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="text-2xl font-bold text-blue-600">
+                    Cesar Maia
+                </a>
+
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#hero" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium nav-link">Início</a>
+                    <a href="#sobre" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium nav-link">Sobre Mim</a>
+                    <a href="#servicos" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium nav-link">Serviços</a>
+                    <a href="#diferenciais" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium nav-link">Diferenciais</a>
+                    <a href="#depoimentos" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium nav-link">Depoimentos</a>
+                    <a href="#contato" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium nav-link">Contato</a>
+                </nav>
+
+                <div class="hidden md:block">
+                    <a href="https://wa.me/5567981716759?text=Ol%C3%A1%2C+Cesar!+Preciso+de+suporte+t%C3%A9cnico." target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-2.5 rounded-lg shadow-md transition duration-300 flex items-center">
+                        <i class="fab fa-whatsapp mr-2"></i> Fale Comigo
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="#hero" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-4 py-3 text-sm font-medium nav-link-mobile">Início</a>
+            <a href="#sobre" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-4 py-3 text-sm font-medium nav-link-mobile">Sobre Mim</a>
+            <a href="#servicos" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-4 py-3 text-sm font-medium nav-link-mobile">Serviços</a>
+            <a href="#diferenciais" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-4 py-3 text-sm font-medium nav-link-mobile">Diferenciais</a>
+            <a href="#depoimentos" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-4 py-3 text-sm font-medium nav-link-mobile">Depoimentos</a>
+            <a href="#contato" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-4 py-3 text-sm font-medium nav-link-mobile">Contato</a>
+            <div class="px-4 py-3">
+                 <a href="https://wa.me/5567981716759?text=Ol%C3%A1%2C+Cesar!+Preciso+de+suporte+t%C3%A9cnico." target="_blank" rel="noopener noreferrer" class="w-full block text-center bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2.5 rounded-lg shadow-md transition duration-300 flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2"></i> Fale Comigo
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="hero" class="hero-bg text-white min-h-[calc(100vh-80px)] flex items-center justify-center relative">
+            <div class="absolute inset-0 bg-black opacity-60"></div> <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight animate-fade-in-down">
+                    Cesar Maia
+                </h1>
+                <p class="text-2xl sm:text-3xl md:text-4xl mb-4 font-semibold animate-fade-in-down animation-delay-300">
+                    Técnico de Informática e Redes
+                </p>
+                <p class="text-lg sm:text-xl md:text-2xl mb-10 max-w-3xl mx-auto font-light animate-fade-in-up animation-delay-500">
+                    Soluções completas em manutenção de computadores, notebooks, configuração de redes e suporte técnico em Paranaíba/MS.
+                </p>
+                <div class="animate-fade-in-up animation-delay-500" style="animation-delay: 0.8s;">
+                    <a href="#servicos" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-lg text-lg shadow-xl transition duration-300 transform hover:scale-105">
+                        Meus Serviços
+                    </a>
+                    <a href="https://wa.me/5567981716759?text=Ol%C3%A1%2C+Cesar!+Gostaria+de+um+or%C3%A7amento." target="_blank" rel="noopener noreferrer" class="ml-4 border-2 border-white hover:bg-white hover:text-blue-700 text-white font-semibold px-10 py-4 rounded-lg text-lg shadow-xl transition duration-300 transform hover:scale-105">
+                        Orçamento Rápido <i class="fab fa-whatsapp ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="sobre" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Sobre Mim</h2>
+                <p class="section-subtitle">
+                    Apaixonado por tecnologia e dedicado a oferecer o melhor suporte técnico em Paranaíba e região.
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x450/60a5fa/ffffff?text=Cesar+Maia" alt="[Foto de Cesar Maia, técnico de informática]" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    <div class="text-gray-700 space-y-6">
+                        <h3 class="text-2xl font-semibold text-gray-800">Olá, sou Cesar Maia!</h3>
+                        <p>Com anos de experiência no mercado de TI, meu principal objetivo é resolver seus problemas tecnológicos de forma rápida, eficiente e com um atendimento personalizado. Atendo desde usuários domésticos a pequenas empresas em Paranaíba, Mato Grosso do Sul.</p>
+                        <p>Acredito que a tecnologia deve facilitar a vida das pessoas, e não complicar. Por isso, busco sempre as soluções mais adequadas para cada cliente, explicando os procedimentos de forma clara e oferecendo um serviço transparente e confiável.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Atendimento rápido e personalizado.
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Diagnóstico preciso e soluções eficazes.
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Compromisso com a satisfação do cliente.
+                            </li>
+                        </ul>
+                         <a href="#contato" class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300">
+                            Entre em Contato
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="servicos" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Meus Serviços</h2>
+                <p class="section-subtitle">
+                    Soluções completas para seus equipamentos e redes. Confira o que posso fazer por você:
+                </p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect">
+                        <div class="flex items-center justify-center bg-blue-100 rounded-full w-16 h-16 mb-6">
+                            <i class="fas fa-desktop text-3xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Manutenção de Computadores</h3>
+                        <p class="text-gray-600">Reparos, upgrades e otimização de desktops e notebooks de todas as marcas e modelos.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect">
+                        <div class="flex items-center justify-center bg-green-100 rounded-full w-16 h-16 mb-6">
+                            <i class="fas fa-cogs text-3xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Formatação e Instalação</h3>
+                        <p class="text-gray-600">Instalação e configuração de Windows, Linux, drivers, softwares e backup de dados.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect">
+                        <div class="flex items-center justify-center bg-red-100 rounded-full w-16 h-16 mb-6">
+                            <i class="fas fa-shield-virus text-3xl text-red-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Remoção de Vírus</h3>
+                        <p class="text-gray-600">Limpeza completa de malwares, spywares e otimização para um sistema mais rápido e seguro.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect">
+                        <div class="flex items-center justify-center bg-yellow-100 rounded-full w-16 h-16 mb-6">
+                            <i class="fas fa-network-wired text-3xl text-yellow-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Configuração de Redes</h3>
+                        <p class="text-gray-600">Instalação e configuração de redes Wi-Fi e cabeadas para residências e pequenos escritórios.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect">
+                        <div class="flex items-center justify-center bg-purple-100 rounded-full w-16 h-16 mb-6">
+                            <i class="fas fa-headset text-3xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Suporte Técnico</h3>
+                        <p class="text-gray-600">Atendimento remoto ou presencial para solucionar problemas e tirar dúvidas.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect">
+                        <div class="flex items-center justify-center bg-indigo-100 rounded-full w-16 h-16 mb-6">
+                            <i class="fas fa-tools text-3xl text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Consultoria em TI</h3>
+                        <p class="text-gray-600">Orientação para aquisição de equipamentos, softwares e melhorias na sua infraestrutura de TI.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="diferenciais" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Meus Diferenciais</h2>
+                <p class="section-subtitle">
+                    Por que escolher meus serviços de suporte técnico?
+                </p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover-effect">
+                        <i class="fas fa-user-shield text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Confiança e Transparência</h3>
+                        <p class="text-gray-600 text-sm">Serviço honesto, com explicações claras sobre os problemas e soluções aplicadas.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover-effect">
+                        <i class="fas fa-shipping-fast text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Agilidade no Atendimento</h3>
+                        <p class="text-gray-600 text-sm">Busco resolver seu problema o mais rápido possível, minimizando seu tempo parado.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover-effect">
+                        <i class="fas fa-map-marker-alt text-4xl text-red-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Atendimento Local</h3>
+                        <p class="text-gray-600 text-sm">Suporte técnico especializado aqui mesmo em Paranaíba/MS, com opção de visita.</p>
+                    </div>
+                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover-effect">
+                        <i class="fas fa-thumbs-up text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Qualidade Garantida</h3>
+                        <p class="text-gray-600 text-sm">Utilizo peças e softwares de qualidade, visando a durabilidade e o bom funcionamento.</p>
+                    </div>
+                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover-effect">
+                        <i class="fas fa-comments text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Suporte Pós-Serviço</h3>
+                        <p class="text-gray-600 text-sm">Disponível para tirar dúvidas e auxiliar mesmo após a conclusão do serviço.</p>
+                    </div>
+                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg text-center card-hover-effect">
+                        <i class="fas fa-hand-holding-usd text-4xl text-teal-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Preço Justo</h3>
+                        <p class="text-gray-600 text-sm">Orçamentos competitivos e justos, adequados à complexidade do serviço.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="depoimentos" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">O Que Meus Clientes Dizem</h2>
+                <p class="section-subtitle">
+                    A satisfação de quem confia no meu trabalho é minha maior prioridade.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/80x80/e0e7ff/4338ca?text=JS" alt="[Foto do Cliente João S.]" class="w-16 h-16 rounded-full mr-4 object-cover">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">João S.</h4>
+                                <p class="text-sm text-gray-500">Cliente Residencial</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"O Cesar resolveu o problema do meu computador rapidinho! Muito atencioso e profissional. Recomendo demais aqui em Paranaíba."</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/80x80/d1fae5/059669?text=MA" alt="[Foto da Cliente Maria A.]" class="w-16 h-16 rounded-full mr-4 object-cover">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Maria A.</h4>
+                                <p class="text-sm text-gray-500">Pequena Empresa</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"Precisávamos configurar nossa rede no escritório e o Cesar foi excelente. Serviço rápido, eficiente e com ótimo custo-benefício."</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/80x80/fee2e2/b91c1c?text=LP" alt="[Foto do Cliente Lucas P.]" class="w-16 h-16 rounded-full mr-4 object-cover">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Lucas P.</h4>
+                                

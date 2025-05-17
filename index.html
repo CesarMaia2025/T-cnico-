@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesar Maia - Técnico de Informática e Redes em Paranaíba/MS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis CSS - Tema Escuro */
+        :root {
+            --primary-color: #3b82f6; /* Azul */
+            --primary-color-dark: #2563eb; /* Azul mais escuro */
+            --secondary-color: #10b981; /* Verde */
+            --secondary-color-dark: #059669; /* Verde mais escuro */
+            
+            --bg-primary: #111827; /* Cinza muito escuro */
+            --bg-secondary: #1f2937; /* Cinza escuro */
+            --bg-card: #374151; /* Cinza médio-escuro */
+            
+            --text-primary: #f3f4f6; /* Cinza claro */
+            --text-secondary: #9ca3af; /* Cinza médio */
+            --text-headings: #ffffff; /* Branco */
+            
+            --border-color: #4b5563; /* Cinza */
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.3), 0 10px 10px -5px rgba(0,0,0,0.25);
+
+            --border-radius-sm: 0.25rem;  /* 4px */
+            --border-radius-md: 0.375rem; /* 6px */
+            --border-radius-lg: 0.5rem;   /* 8px */
+            --font-family-sans: 'Inter', sans-serif;
+        }
+
+        /* Reset Básico & Padrões */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 100%; 
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            color: var(--text-secondary);
+            background-color: var(--bg-primary);
+            line-height: 1.6;
+            font-size: 1rem; 
+            overflow-x: hidden; 
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-headings);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5em; } 
+        h2 { font-size: 2rem; margin-bottom: 0.75em; } 
+        h3 { font-size: 1.5rem; margin-bottom: 0.5em; } 
+        h4 { font-size: 1.25rem; margin-bottom: 0.5em; } 
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+        }
+        a:hover {
+            color: var(--primary-color-dark);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--border-radius-md);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button, .button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-lg);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: var(--shadow-sm);
+            font-family: var(--font-family-sans);
+        }
+        button:hover, .button:hover {
+             box-shadow: var(--shadow-md);
+        }
+
+        .button-primary {
+            background-color: var(--primary-color);
+            color: var(--text-headings);
+        }
+        .button-primary:hover {
+            background-color: var(--primary-color-dark);
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        .button-secondary {
+            background-color: var(--secondary-color);
+            color: var(--text-headings);
+        }
+        .button-secondary:hover {
+            background-color: var(--secondary-color-dark);
+            transform: translateY(-2px) scale(1.03);
+        }
+        
+        .button-outline {
+            background-color: transparent;
+            color: var(--text-headings);
+            border: 2px solid var(--text-headings);
+        }
+        .button-outline:hover {
+            background-color: var(--text-headings);
+            color: var(--primary-color-dark); 
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        /* Cabeçalho */
+        .site-header {
+            background-color: var(--bg-secondary);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 80px; 
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .site-logo {
+            font-size: 1.4rem; 
+            font-weight: 800;
+            color: var(--primary-color);
+            white-space: nowrap;
+            line-height: 1;
+            margin-right: auto; 
+        }
+        .site-logo a { color: inherit; }
+        .site-logo a:hover { color: var(--primary-color-dark); }
+
+        .nav-desktop {
+            display: none; 
+            align-items: center;
+        }
+        .nav-desktop ul {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem; 
+        }
+        .nav-desktop a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            height: 100%;
+            border-radius: var(--border-radius-md);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative; 
+            overflow: hidden; 
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .nav-desktop a::before { 
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        .nav-desktop a:hover::before,
+        .nav-desktop a.nav-link-active::before {
+            width: calc(100% - 2rem); 
+            left: 1rem;
+        }
+        .nav-desktop a:hover,
+        .nav-desktop a.nav-link-active {
+            color: var(--primary-color); 
+            font-weight: 600;
+            background-color: rgba(59, 130, 246, 0.1); 
+        }
+
+        .header-cta {
+            display: none; 
+            align-items: center;
+            margin-left: 1rem; 
+        }
+        .header-cta .button {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            white-space: nowrap; 
+        }
+        .header-cta .button i {
+            margin-right: 0.5rem;
+        }
+
+        .mobile-menu-button {
+            display: block; 
+            background: none;
+            border: none;
+            font-size: 1.75rem; 
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.5rem; 
+            margin-left: 1rem; 
+        }
+        .mobile-menu-button:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-mobile {
+            display: none; 
+            flex-direction: column;
+            background-color: var(--bg-secondary);
+            box-shadow: var(--shadow-lg);
+            position: absolute;
+            top: 80px; 
+            left: 0;
+            right: 0;
+            padding-bottom: 1rem;
+            border-top: 1px solid var(--border-color);
+            z-index: 999; 
+        }
+        .nav-mobile.nav-mobile--open { 
+            display: flex;
+        }
+        .nav-mobile a {
+            display: block;
+            padding: 1rem 1.5rem; 
+            color: var(--text-secondary);
+            font-size: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+        .nav-mobile a:last-child { 
+            border-bottom: none; 
+        }
+        .nav-mobile a.button-secondary { 
+             border-bottom: none; 
+        }
+        .nav-mobile a:hover,
+        .nav-mobile a.nav-link-active { 
+            background-color: var(--bg-primary);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .nav-mobile .button-secondary {
+            margin: 1.5rem 1.5rem 0.5rem; 
+            width: calc(100% - 3rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-mobile .button-secondary i {
+            margin-right: 0.5rem;
+        }
+
+        /* Seção Hero */
+        .hero-section {
+            background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dGVjaG5vbG9neSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-headings);
+            min-height: calc(80vh - 80px); 
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 3rem 1rem; 
+        }
+        .hero-section::before { 
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(17, 24, 39, 0.8); 
+            z-index: 1;
+        }
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-section h1 {
+            font-size: 2.2rem; 
+            line-height: 1.2;
+        }
+        .hero-section .subtitle-job {
+            font-size: 1.5rem; 
+            font-weight: 600; 
+            margin-bottom: 2rem; 
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+
+        .hero-actions {
+            margin-top: 1.5rem;
+        }
+        .hero-actions .button {
+            margin: 0.5rem;
+            font-size: 0.9rem; 
+            padding: 0.8rem 1.5rem; 
+        }
+        .hero-actions .button i {
+            margin-left: 0.5rem;
+        }
+
+        /* Estilização Geral das Seções */
+        .section {
+            padding: 3rem 0;
+        }
+        .section-dark { background-color: var(--bg-primary); }
+        .section-darker { background-color: var(--bg-secondary); }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-headings);
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1rem;
+        }
+
+        /* Seção Sobre Mim */
+        #sobre { padding-top: 4rem; } 
+        .about-grid { 
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 1rem; 
+            align-items: center;
+        }
+        
+        .about-content { 
+            text-align: left; 
+            max-width: 800px; 
+            margin-left: auto; 
+            margin-right: auto;
+            padding: 0 1rem; 
+        }
+        .about-content h3 {
+            font-size: 1.5rem;
+            color: var(--text-headings);
+            margin-bottom: 1rem;
+        }
+        .about-content ul {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0;
+        }
+        .about-content ul li {
+            display: flex;
+            align-items: flex-start; 
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .about-content ul i {
+            color: var(--secondary-color);
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+            margin-top: 0.15em; 
+        }
+
+        /* Seções de Serviços & Diferenciais */
+        .cards-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: var(--bg-card);
+            padding: 1.5rem; 
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid transparent; 
+        }
+        .card:hover {
+            transform: translateY(-5px) scale(1.02); 
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+        .card-icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.5rem; 
+            height: 3.5rem;
+            border-radius: 50%;
+            margin-bottom: 1rem; 
+        }
+        .card-icon-wrapper i {
+            font-size: 1.75rem; 
+        }
+        .icon-blue { background-color: rgba(59, 130, 246, 0.15); color: var(--primary-color); }
+        .icon-green { background-color: rgba(16, 185, 129, 0.15); color: var(--secondary-color); }
+        .icon-red { background-color: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .icon-yellow { background-color: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+        .icon-purple { background-color: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+        .icon-indigo { background-color: rgba(99, 102, 241, 0.15); color: #6366f1; }
+        .icon-teal { background-color: rgba(20, 184, 166, 0.15); color: #14b8a6; }
+
+
+        .card h3 {
+            font-size: 1.2rem; 
+            color: var(--text-headings);
+            margin-bottom: 0.75rem;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        /* Estilos para a nova seção de Projetos */
+        .project-card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid transparent;
+            padding: 0; 
+        }
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-color);
+        }
+        .project-image {
+            width: 100%;
+            height: 280px; 
+            object-fit: cover; 
+            display: block;
+            background-color: var(--bg-secondary); 
+        }
+
+
+        /* Seção de Depoimentos */
+        .testimonial-card {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .testimonial-author img {
+            width: 3.5rem; 
+            height: 3.5rem;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            background-color: var(--bg-secondary); 
+        }
+        .testimonial-author h4 {
+            font-size: 1.05rem; 
+            color: var(--text-headings);
+            margin-bottom: 0.25rem;
+        }
+        .testimonial-author p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+        .testimonial-card .quote {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.95rem; 
+        }
+        .testimonial-card .quote::before {
+            content: "“";
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-right: 0.2em;
+            line-height: 0;
+        }
+        .testimonial-card .quote::after {
+            content: "”";
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-left: 0.2em;
+            line-height: 0;
+        }
+
+
+        /* Seção de Contato */
+        .contact-wrapper {
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-headings);
+        }
+        .contact-info .button-secondary {
+            font-size: 1.1rem;
+            padding: 0.8rem 2rem;
+        }
+        .contact-info .button-secondary i {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+        .contact-info p {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        .contact-info p i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        .contact-divider {
+            margin: 2.5rem 0;
+            border-color: var(--border-color);
+        }
+        .contact-form h3 {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-headings);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            font-size: 1rem;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-secondary);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            background-color: var(--bg-secondary);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-submit-button {
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1rem;
+        }
+        #form-feedback p {
+            margin-top: 1rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        .form-feedback-success { color: var(--secondary-color); }
+        .form-feedback-error { color: #f87171; /* Tailwind Red 400 */ }
+
+
+        /* Rodapé */
+        .site-footer {
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .footer-column h4 {
+            font-size: 1.2rem;
+            color: var(--text-headings);
+            margin-bottom: 1rem;
+        }
+        .footer-column p,
+        .footer-column ul li { 
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .footer-column ul li a { 
+            color: var(--text-secondary); 
+            display: inline-flex; 
+            align-items: center;
+        }
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+        }
+        .footer-column ul li i.link-icon { 
+            margin-right: 0.75rem; 
+            width: 20px; 
+            color: var(--primary-color);
+            flex-shrink: 0; 
+        }
+         .footer-column ul li i.contact-icon { 
+            margin-right: 0.75rem; 
+            width: 20px; 
+            color: var(--primary-color);
+            flex-shrink: 0; 
+        }
+
+        .footer-socials {
+            margin-top: 1rem;
+        }
+        .footer-socials a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        .footer-socials a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+        .footer-bottom p {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Animações */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in { transform: translateY(0); } 
+        .fade-in-down { transform: translateY(-30px); } 
+        .fade-in-up { transform: translateY(30px); } 
+        .fade-in-left { transform: translateX(-30px); }
+        .fade-in-right { transform: translateX(30px); }
+        
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0);
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 0.25rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 1rem; }
+        .mt-1 { margin-top: 0.25rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-3 { margin-top: 1rem; }
+
+        /* Media Queries para Responsividade */
+        
+        /* Telas pequenas (tablets, 768px e acima) */
+        @media (min-width: 768px) {
+            h1 { font-size: 3rem; } 
+            h2 { font-size: 2.5rem; } 
+            h3 { font-size: 1.75rem; } 
+
+            .container {
+                width: 85%;
+            }
+
+            .site-logo { font-size: 1.75rem; margin-right: 0; }
+            .nav-desktop { display: flex; } 
+            .mobile-menu-button { display: none; } 
+            .header-cta { display: flex; } 
+
+            .hero-section h1 { font-size: 3.2rem; }
+            .hero-section .subtitle-job { font-size: 2rem; } 
+            .hero-actions .button { font-size: 1rem; padding: 0.9rem 1.8rem; }
+
+            .section { padding: 4rem 0; }
+            #sobre { padding-top: 5rem; }
+            .section-title { font-size: 2.2rem; }
+            .section-subtitle { font-size: 1.1rem; }
+
+            .about-grid {
+                grid-template-columns: 1fr; 
+                text-align: left; 
+            }
+            .about-content {
+                text-align: left; 
+                padding: 0; 
+            }
+
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            #projects-grid { 
+                 grid-template-columns: repeat(2, 1fr);
+            }
+            .card { padding: 2rem; }
+            .project-card { padding: 0; } 
+            .card-icon-wrapper { width: 4rem; height: 4rem; margin-bottom: 1.5rem; }
+            .card-icon-wrapper i { font-size: 2rem; }
+            .card h3 { font-size: 1.25rem; }
+
+            .testimonial-card { padding: 2rem; }
+
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr); 
+                text-align: left;
+            }
+            .footer-column ul li {
+                justify-content: flex-start;
+            }
+        }
+
+        /* Telas médias (desktops, 992px e acima) */
+        @media (min-width: 992px) {
+            .container {
+                width: 80%;
+                max-width: 1200px; 
+            }
+            .hero-section h1 { font-size: 3.8rem; }
+            .hero-section .subtitle-job { font-size: 2.2rem; } 
+
+            .cards-grid#services-grid, 
+            .cards-grid#differentiators-grid,
+            .cards-grid#projects-grid { 
+                grid-template-columns: repeat(3, 1fr); 
+            }
+            .cards-grid#testimonials-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+
+        /* Telas grandes (desktops grandes, 1200px e acima) */
+        @media (min-width: 1200px) {
+            h1 { font-size: 3.5rem; }
+            .hero-section h1 { font-size: 4rem; }
+            .hero-section .subtitle-job { font-size: 2.5rem; } 
+
+            .cards-grid#testimonials-grid {
+                grid-template-columns: repeat(3, 1fr); 
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="site-logo">
+                <a href="#inicio">Cesar Maia</a>
+            </div>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+                    <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="https://wa.me/5567981716759" target="_blank" class="button button-primary"> 
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+            <button class="mobile-menu-button" aria-label="Abrir Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-mobile">
+        <a href="#inicio" class="nav-link">Início</a>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#servicos" class="nav-link">Serviços</a>
+        <a href="#diferenciais" class="nav-link">Diferenciais</a>
+        <a href="#projetos" class="nav-link">Projetos</a>
+        <a href="#depoimentos" class="nav-link">Depoimentos</a>
+        <a href="#contato" class="nav-link">Contato</a>
+        <a href="https://wa.me/5567981716759" target="_blank" class="button button-secondary"> 
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </nav>
+
+    <section class="hero-section" id="inicio">
+        <div class="container">
+            <h1 class="animate-on-scroll fade-in-down">Cesar Maia</h1>
+            <p class="subtitle-job animate-on-scroll fade-in-down" style="animation-delay: 0.2s;">Técnico de Informática e Redes em Paranaíba/MS</p>
+            <p class="animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">Soluções completas em TI para sua casa ou empresa. Atendimento rápido, eficiente e personalizado.</p>
+            <div class="hero-actions animate-on-scroll fade-in-up" style="animation-delay: 0.6s;">
+                <a href="#servicos" class="button button-primary">Meus Serviços <i class="fas fa-arrow-right"></i></a>
+                <a href="#contato" class="button button-outline">Entre em Contato</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="section section-darker">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll fade-in">Sobre Mim</h2>
+            <p class="section-subtitle animate-on-scroll fade-in" style="animation-delay: 0.1s;">Conheça um pouco mais sobre minha trajetória e paixão por tecnologia.</p>
+            <div class="about-grid">
+                <div class="about-content animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <h3>Olá! Sou Cesar Maia.</h3>
+                    <p>Com mais de 15 anos de experiência no mercado de tecnologia da informação, sou especialista em oferecer soluções eficientes para os mais diversos desafios em informática e redes. Minha base é em Paranaíba, Mato Grosso do Sul, e atendo clientes em toda a região com dedicação e profissionalismo.</p>
+                    <p>Minha missão é simplificar a tecnologia para você, garantindo que seus equipamentos e sistemas funcionem perfeitamente, permitindo que você foque no que realmente importa.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Atendimento personalizado e focado na sua necessidade.</li>
+                        <li><i class="fas fa-check-circle"></i> Diagnóstico preciso e soluções rápidas.</li>
+                        <li><i class="fas fa-check-circle"></i> Transparência em todos os processos e orçamentos.</li>
+                        <li><i class="fas fa-check-circle"></i> Paixão por tecnologia e aprendizado contínuo.</li>
+                    </ul>
+                    <a href="#contato" class="button button-primary">Fale Comigo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll fade-in">Meus Serviços</h2>
+            <p class="section-subtitle animate-on-scroll fade-in" style="animation-delay: 0.1s;">Ofereço uma gama completa de serviços para atender suas necessidades em TI.</p>
+            <div class="cards-grid" id="services-grid">
+                <div class="card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="card-icon-wrapper icon-blue"><i class="fas fa-laptop-medical"></i></div>
+                    <h3>Manutenção de Computadores</h3>
+                    <p>Reparos, upgrades, formatação, remoção de vírus e otimização de desktops e notebooks.</p>
+                </div>
+                <div class="card animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="card-icon-wrapper icon-green"><i class="fas fa-network-wired"></i></div>
+                    <h3>Configuração de Redes</h3>
+                    <p>Instalação e configuração de redes cabeadas e Wi-Fi para residências e empresas.</p>
+                </div>
+                <div class="card animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="card-icon-wrapper icon-red"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Segurança Digital</h3>
+                    <p>Consultoria em segurança, configuração de antivírus, firewall e boas práticas online.</p>
+                </div>
+                <div class="card animate-on-scroll fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="card-icon-wrapper icon-yellow"><i class="fas fa-database"></i></div>
+                    <h3>Backup e Recuperação</h3>
+                    <p>Soluções de backup de dados e auxílio na recuperação de arquivos perdidos.</p>
+                </div>
+                 <div class="card animate-on-scroll fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="card-icon-wrapper icon-purple"><i class="fas fa-headset"></i></div>
+                    <h3>Suporte Remoto</h3>
+                    <p>Atendimento ágil e eficiente através de acesso remoto para solucionar problemas rapidamente.</p>
+                </div>
+                 <div class="card animate-on-scroll fade-in-up" style="animation-delay: 0.7s;">
+                    <div class="card-icon-wrapper icon-indigo"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Consultoria em TI</h3>
+                    <p>Orientação para aquisição de equipamentos, otimização de infraestrutura e projetos de TI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciais" class="section section-darker">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll fade-in">Meus Diferenciais</h2>
+            <p class="section-subtitle animate-on-scroll fade-in" style="animation-delay: 0.1s;">Por que escolher meus serviços? Veja o que me destaca no mercado.</p>
+            <div class="cards-grid" id="differentiators-grid">
+                <div class="card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="card-icon-wrapper icon-teal"><i class="fas fa-handshake"></i></div>
+                    <h3>Atendimento Personalizado</h3>
+                    <p>Cada cliente é único. Entendo suas necessidades para oferecer a melhor solução.</p>
+                </div>
+                <div class="card animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="card-icon-wrapper icon-blue"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Agilidade e Eficiência</h3>
+                    <p>Respostas rápidas e soluções eficazes para minimizar seu tempo de inatividade.</p>
+                </div>
+                <div class="card animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="card-icon-wrapper icon-green"><i class="fas fa-tools"></i></div>
+                    <h3>Qualidade Técnica</h3>
+                    <p>Conhecimento atualizado e uso de ferramentas adequadas para garantir o melhor resultado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll fade-in">Projetos Recentes</h2>
+            <p class="section-subtitle animate-on-scroll fade-in" style="animation-delay: 0.1s;">Confira alguns dos meus trabalhos e manutenções realizadas.</p>
+            <div class="cards-grid" id="projects-grid">
+                <div class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Reparo+de+Hardware" alt="Imagem de Reparo de Hardware" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4b5563/f3f4f6?text=Imagem+Indisponível';this.alt='Erro ao carregar Imagem do Projeto 1';">
+                </div>
+                <div class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+                    <img src="https://placehold.co/600x400/10b981/ffffff?text=Configuração+de+Rede" alt="Imagem de Configuração de Rede" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4b5563/f3f4f6?text=Imagem+Indisponível';this.alt='Erro ao carregar Imagem do Projeto 2';">
+                </div>
+                <div class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                    <img src="https://placehold.co/600x400/ef4444/ffffff?text=Remoção+de+Vírus" alt="Imagem de Remoção de Vírus" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4b5563/f3f4f6?text=Imagem+Indisponível';this.alt='Erro ao carregar Imagem do Projeto 3';">
+                </div>
+                <div class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.5s;">
+                    <img src="https://placehold.co/600x400/f59e0b/111827?text=Otimização+de+Sistema" alt="Imagem de Otimização de Sistema" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4b5563/f3f4f6?text=Imagem+Indisponível';this.alt='Erro ao carregar Imagem do Projeto 4';">
+                </div>
+                <div class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.6s;">
+                    <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Instalação+Software" alt="Imagem de Instalação de Software" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4b5563/f3f4f6?text=Imagem+Indisponível';this.alt='Erro ao carregar Imagem do Projeto 5';">
+                </div>
+                <div class="project-card animate-on-scroll fade-in-up" style="animation-delay: 0.7s;">
+                    <img src="https://placehold.co/600x400/14b8a6/ffffff?text=Consultoria+TI" alt="Imagem de Consultoria em TI" class="project-image" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4b5563/f3f4f6?text=Imagem+Indisponível';this.alt='Erro ao carregar Imagem do Projeto 6';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="section section-darker"> 
+        <div class="container">
+            <h2 class="section-title animate-on-scroll fade-in">O Que Dizem Meus Clientes</h2>
+            <p class="section-subtitle animate-on-scroll fade-in" style="animation-delay: 0.1s;">A satisfação dos meus clientes é minha maior recompensa.</p>
+            <div class="cards-grid" id="testimonials-grid">
+                <div class="testimonial-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/100x100/7c3aed/ffffff?text=JS" alt="Avatar Cliente João Silva">
+                        <div>
+                            <h4>João Silva</h4>
+                            <p>Empresário Local</p>
+                        </div>
+                    </div>
+                    <p class="quote">O Cesar resolveu um problema complexo na rede da minha empresa com muita rapidez e profissionalismo. Recomendo!</p>
+                </div>
+                <div class="testimonial-card animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/100x100/db2777/ffffff?text=MO" alt="Avatar Cliente Maria Oliveira">
+                        <div>
+                            <h4>Maria Oliveira</h4>
+                            <p>Usuária Doméstica</p>
+                        </div>
+                    </div>
+                    <p class="quote">Meu notebook estava muito lento, quase inutilizável. O Cesar fez uma limpeza e otimização, agora está como novo. Excelente serviço!</p>
+                </div>
+                <div class="testimonial-card animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/100x100/ea580c/ffffff?text=AC" alt="Avatar Cliente Ana Costa">
+                        <div>
+                            <h4>Ana Costa</h4>
+                            <p>Estudante</p>
+                        </div>
+                    </div>
+                    <p class="quote">Precisei de ajuda para configurar minha impressora e rede Wi-Fi em casa. O atendimento foi super atencioso e o problema resolvido rapidinho.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="section section-dark"> 
+        <div class="container">
+            <h2 class="section-title animate-on-scroll fade-in">Entre em Contato</h2>
+            <p class="section-subtitle animate-on-scroll fade-in" style="animation-delay: 0.1s;">Vamos conversar sobre suas necessidades? Estou à disposição para ajudar!</p>
+            
+            <div class="contact-wrapper animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                <div class="contact-info">
+                    <h3>Fale diretamente comigo pelo WhatsApp!</h3>
+                    <a href="https://wa.me/5567981716759?text=Olá%20Cesar,%20gostaria%20de%20um%20orçamento." target="_blank" class="button button-secondary"> 
+                        <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                    </a>
+                    <p><i class="fas fa-map-marker-alt"></i> Atendimento em Paranaíba/MS e região.</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:cesarmaia_@hotmail.com.br">cesarmaia_@hotmail.com.br</a></p> 
+                </div>
+
+                <hr class="contact-divider">
+
+                <form id="contactForm" class="contact-form">
+                    <h3>Ou envie uma mensagem pelo formulário:</h3>
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone (Opcional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(XX) XXXXX-XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" placeholder="Ex: Orçamento para formatação" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Descreva sua necessidade..." required></textarea>
+                    </div>
+                    <button type="submit" class="button button-primary form-submit-button">Enviar Mensagem</button>
+                    <div id="form-feedback"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column animate-on-scroll fade-in-up">
+                    <h4>Cesar Maia</h4>
+                    <p>Técnico de Informática e Redes <br> Paranaíba/MS</p>
+                    <div class="footer-socials">
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5567981716759" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> 
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio"><i class="fas fa-home link-icon"></i>Início</a></li>
+                        <li><a href="#sobre"><i class="fas fa-info-circle link-icon"></i>Sobre Mim</a></li>
+                        <li><a href="#servicos"><i class="fas fa-concierge-bell link-icon"></i>Serviços</a></li>
+                        <li><a href="#diferenciais"><i class="fas fa-star link-icon"></i>Diferenciais</a></li>
+                        <li><a href="#projetos"><i class="fas fa-briefcase link-icon"></i>Projetos</a></li>
+                        <li><a href="#depoimentos"><i class="fas fa-comments link-icon"></i>Depoimentos</a></li>
+                        <li><a href="#contato"><i class="fas fa-envelope-open-text link-icon"></i>Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="tel:+5567981716759"><i class="fas fa-phone-alt contact-icon"></i> (67) 98171-6759</a></li> 
+                        <li><a href="mailto:cesarmaia_@hotmail.com.br"><i class="fas fa-envelope contact-icon"></i> cesarmaia_@hotmail.com.br</a></li> 
+                        <li><i class="fas fa-map-marker-alt contact-icon"></i> Paranaíba, MS</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Cesar Maia. Todos os direitos reservados.</p>
+                <p>Desenvolvido com <i class="fas fa-heart" style="color: var(--primary-color);"></i> e muito <i class="fas fa-coffee" style="color: var(--primary-color);"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const menuButton = document.querySelector('.mobile-menu-button');
+            const navMobile = document.querySelector('.nav-mobile');
+            const navLinksMobile = navMobile.querySelectorAll('a'); 
+
+            if (menuButton && navMobile) {
+                menuButton.addEventListener('click', () => {
+                    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+                    menuButton.setAttribute('aria-expanded', !isExpanded);
+                    navMobile.classList.toggle('nav-mobile--open');
+                    const icon = menuButton.querySelector('i');
+                    if (navMobile.classList.contains('nav-mobile--open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                navLinksMobile.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navMobile.classList.contains('nav-mobile--open')) {
+                           menuButton.click(); 
+                        }
+                    });
+                });
+            }
+
+            // Scroll Animations
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                         // observer.unobserve(entry.target); 
+                    } else {
+                        // entry.target.classList.remove('is-visible'); 
+                    }
+                });
+            }, {
+                threshold: 0.1 
+            });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Active Navigation Link on Scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinksAll = document.querySelectorAll('.nav-desktop a, .nav-mobile a');
+            
+            function changeNavActiveState() {
+                let currentSectionId = 'inicio'; 
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 120) { 
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinksAll.forEach(link => {
+                    link.classList.remove('nav-link-active');
+                    if (link.getAttribute('href').substring(1) === currentSectionId) {
+                        link.classList.add('nav-link-active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', changeNavActiveState);
+            changeNavActiveState(); 
+
+            // Contact Form Submission (Placeholder)
+            const contactForm = document.getElementById('contactForm');
+            const formFeedback = document.getElementById('form-feedback');
+
+            if (contactForm && formFeedback) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault(); 
+                    
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+
+                    if (!name || !email || !message) {
+                        formFeedback.innerHTML = '<p class="form-feedback-error">Por favor, preencha todos os campos obrigatórios.</p>';
+                        return;
+                    }
+                    
+                    formFeedback.innerHTML = '<p class="form-feedback-success">Mensagem enviada com sucesso! Entrarei em contato em breve.</p>';
+                    contactForm.reset(); 
+
+                    setTimeout(() => {
+                        formFeedback.innerHTML = '';
+                    }, 5000);
+                });
+            }
+
+            // Update current year in footer
+            const currentYearSpan = document.getElementById('currentYear');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+
+</body>
+</html>
+
